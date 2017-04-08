@@ -2,7 +2,7 @@
 
 App::before(function ($request) {
 
-    // Localhost for backward compatibility.
+    // Trust localhost for backward compatibility.
     $trusted_proxies = [
         '127.0.0.1',
     ];
@@ -26,23 +26,22 @@ App::before(function ($request) {
         '199.27.128.0/21',
     ];
 
-    // Detect if the traffic is from a local machine or load-balancer.
+    // Trust traffic from a local network machine or load-balancer.
     if (!filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE)) {
-        // For most environments, we can trust a local IP as if it is a reverse proxy.
         $trusted_proxies += [
             $request->getClientIp()
         ];
     }
 
-    // Enforce https schema on rendering to match the proxy:
+    // Enforce https schema on rendering to match the proxy closest to us:
     if (
         !empty($_SERVER['HTTP_X_FORWARDED_PROTO'])
         && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https'
     ) {
-        // Generic reverse proxy.
+        // Generic reverse proxy over SSL.
         $this->app['url']->forceSchema('https');
     } elseif (!empty($_SERVER['HTTP_CF_VISITOR'])) {
-        // Cloudflare SSL proxy.
+        // Cloudflare reverse proxy over SSL.
         $visitor = json_decode($_SERVER['HTTP_CF_VISITOR']);
         if ($visitor->scheme == 'https') {
             $this->app['url']->forceSchema('https');
@@ -53,12 +52,6 @@ App::before(function ($request) {
     if (!empty($_SERVER['HTTP_CF_CONNECTING_IP'])) {
         $_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
         $request->server->set('REMOTE_ADDR', $_SERVER['HTTP_CF_CONNECTING_IP']);
-    }
-
-    // Prevent issues with local IPv6.
-    if ($_SERVER['REMOTE_ADDR'] == '::1') {
-        $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
-        $request->server->set('REMOTE_ADDR', '127.0.0.1');
     }
 
     $request->setTrustedProxies($trusted_proxies);
