@@ -12,4 +12,4 @@ No configuration is necessary.
 
 ## License
 
-This package is licensed under the [MIT license](https://github.com/FoxxMD/laravel-elasticbeanstalk-cron/blob/master/LICENSE.txt).
+This package is licensed under the [MIT license](LICENSE.txt).
