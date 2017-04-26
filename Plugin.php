@@ -1,6 +1,5 @@
 <?php namespace HeathDutton\Cloudflare;
 
-use Backend;
 use System\Classes\PluginBase;
 
 /**

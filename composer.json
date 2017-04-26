@@ -1,8 +1,8 @@
 {
-    "name": "heathdutton/octobercms-cloudflare",
+    "name": "heathdutton/cloudflare",
     "type": "october-plugin",
     "description": "Ensures expected behavior when Cloudflare is used with OctoberCMS.",
-    "homepage": "https://github.com/heathdutton/octobercms-cloudflare",
+    "homepage": "https://github.com/heathdutton/cloudflare",
     "keywords": ["october", "octobercms", "cloudflare"],
     "license": "MIT",
     "authors": [

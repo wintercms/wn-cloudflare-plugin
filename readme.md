@@ -12,4 +12,4 @@ No configuration is necessary.
 
 ## License
 
-This package is licensed under the [MIT license](LICENSE.txt).
+This package is licensed under the [MIT license](https://github.com/heathdutton/cloudflare/blob/master/LICENSE.txt).
