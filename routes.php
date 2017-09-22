@@ -34,17 +34,25 @@ App::before(function ($request) {
     }
 
     // Enforce https schema on rendering to match the proxy closest to us:
+    $ssl = false;
     if (
         !empty($_SERVER['HTTP_X_FORWARDED_PROTO'])
         && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https'
     ) {
         // Generic reverse proxy over SSL.
-        $this->app['url']->forceSchema('https');
+        $ssl = true;
     } elseif (!empty($_SERVER['HTTP_CF_VISITOR'])) {
         // Cloudflare reverse proxy over SSL.
         $visitor = json_decode($_SERVER['HTTP_CF_VISITOR']);
         if ($visitor->scheme == 'https') {
+            $ssl = true;
+        }
+    }
+    if ($ssl) {
+        if (method_exists($this->app['url'], 'forceSchema')) {
             $this->app['url']->forceSchema('https');
+        } else if (method_exists($this->app['url'], 'forceScheme')) {
+            $this->app['url']->forceScheme('https');
         }
     }
 
