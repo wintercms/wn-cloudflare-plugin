@@ -23,7 +23,6 @@ App::before(function ($request) {
         '190.93.240.0/20',
         '197.234.240.0/22',
         '198.41.128.0/17',
-        '199.27.128.0/21',
     ];
 
     // Trust traffic from a local network machine or load-balancer.
