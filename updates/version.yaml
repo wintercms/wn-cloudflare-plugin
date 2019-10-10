@@ -1,2 +1,3 @@
 1.0.1: First version of Cloudflare
 1.0.2: Updated Cloudflare's IP range
+1.0.3: Disabled Rocket Loader for javascript assets in the backend as it would cause them to break. Requires Build 460.

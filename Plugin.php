@@ -1,9 +1,11 @@
 <?php namespace HeathDutton\Cloudflare;
 
+use App;
+use Event;
 use System\Classes\PluginBase;
 
 /**
- * https Plugin Information File
+ * Plugin Information File
  */
 class Plugin extends PluginBase
 {
@@ -22,5 +24,20 @@ class Plugin extends PluginBase
             'icon'        => 'icon-leaf'
         ];
     }
-
+    
+    /**
+     * Boot the plugin
+     */
+    public function boot()
+    {
+        // Prevent CloudFlare's Rocket Loader from breaking scripts in the backend
+        // @see octobercms/october#4611, octobercms/october#4092, octobercms/october#3841, octobercms/october#3839
+        if (App::runningInBackend()) {
+            Event::listen('system.assets.beforeAddAsset', function ($type, $path, &$attributes) {
+                if ($type === 'js') {
+                    $attributes['data-cfasync'] = 'false';
+                }
+            });
+        }
+    }
 }
