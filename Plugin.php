@@ -9,6 +9,7 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
+    public $elevated = true;
 
     /**
      * Returns information about this plugin.
