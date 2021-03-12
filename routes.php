@@ -61,5 +61,5 @@ App::before(function ($request) {
         $request->server->set('REMOTE_ADDR', $_SERVER['HTTP_CF_CONNECTING_IP']);
     }
 
-    $request->setTrustedProxies($trusted_proxies);
+    $request->setTrustedProxies($trusted_proxies, \Illuminate\Http\Request::HEADER_X_FORWARDED_FOR);
 });
