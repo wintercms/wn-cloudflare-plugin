@@ -1,20 +1,28 @@
 {
-    "name": "heathdutton/cloudflare",
-    "type": "october-plugin",
-    "description": "Ensures expected behavior when Cloudflare is used with OctoberCMS.",
-    "homepage": "https://github.com/heathdutton/cloudflare",
-    "keywords": ["october", "octobercms", "cloudflare"],
+    "name": "winter/wn-cloudflare-plugin",
+    "description": "Ensures expected behavior when Cloudflare is used with Winter CMS.",
+    "type": "winter-plugin",
+    "homepage": "https://github.com/wintercms/wn-cloudflare-plugin",
+    "support": {
+        "issues": "https://github.com/wintercms/wn-cloudflare-plugin/issues",
+        "discord": "https://discord.gg/D5MFSPH6Ux",
+        "source": "https://github.com/wintercms/wn-cloudflare-plugin"
+    },
+    "keywords": ["rocketloader", "cloudflare", "proxy", "wintercms", "https", "flexiblessl"],
     "license": "MIT",
     "authors": [
         {
             "name": "Heath Dutton",
             "email": "heathdutton@gmail.com",
-            "role": "Author"
+            "role": "Original Author"
+        },
+        {
+            "name": "Winter CMS Maintainers",
+            "homepage": "https://wintercms.com",
+            "role": "Maintainer"
         }
     ],
-    "require": {
-        "php": ">=5.5.9",
-        "composer/installers": "~1.0"
-    },
-    "minimum-stability": "dev"
+    "replace": {
+        "heathdutton/cloudflare": "<= 1.0.3"
+    }
 }
