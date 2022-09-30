@@ -1,6 +1,6 @@
 # Cloudflare for Winter CMS
 
-![Cloudflare Plugin](https://user-images.githubusercontent.com/15900351/193171675-b8104470-3288-47f7-8d45-f52e6f5cafb2.png)
+![Cloudflare Plugin](https://user-images.githubusercontent.com/15900351/193173187-451bca1a-f484-4c41-b5d1-f01e49d2c765.png)
 
 *Ensure that HTTPS and IP detection works flawlessly with Cloudflare and Winter CMS*
 
@@ -30,3 +30,5 @@ It has since been modified and re-released under the Winter namespace as a first
 If you would like to contribute to this plugin's development, please feel free to submit issues or pull requests to the plugin's repository here: https://github.com/wintercms/wn-cloudflare-plugin
 
 If you would like to support Winter CMS, please visit [WinterCMS.com](https://wintercms.com/support)
+
+*Cloudflare and the Cloudflare logo are trademarks and/or registered trademarks of Cloudflare, Inc. in the United States and other jurisdictions.*
