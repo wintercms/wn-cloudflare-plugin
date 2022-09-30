@@ -1,5 +1,7 @@
 # Cloudflare for Winter CMS
 
+![Cloudflare Plugin](https://user-images.githubusercontent.com/15900351/193171675-b8104470-3288-47f7-8d45-f52e6f5cafb2.png)
+
 *Ensure that HTTPS and IP detection works flawlessly with Cloudflare and Winter CMS*
 
 This super-simple plugin ensures compatibility with Cloudflare Flexible and Full SSL, even when behind a load balancer.
