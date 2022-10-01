@@ -118,14 +118,14 @@ class Plugin extends PluginBase
         $ssl = false;
         if (
             !empty($_SERVER['HTTP_X_FORWARDED_PROTO'])
-            && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https'
+            && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https'
         ) {
             // Generic reverse proxy over SSL.
             $ssl = true;
         } elseif (!empty($_SERVER['HTTP_CF_VISITOR'])) {
             // Cloudflare reverse proxy over SSL.
             $visitor = json_decode($_SERVER['HTTP_CF_VISITOR']);
-            if ($visitor->scheme == 'https') {
+            if ($visitor->scheme === 'https') {
                 $ssl = true;
             }
         }
