@@ -1,6 +1,7 @@
 <?php namespace Winter\Cloudflare;
 
 use App;
+use Config;
 use Event;
 use System\Classes\PluginBase;
 
@@ -105,7 +106,7 @@ class Plugin extends PluginBase
         ];
 
         // Trust traffic from a local network machine or load-balancer.
-        if (!filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE)) {
+        if (!filter_var($_SERVER['REMOTE_ADDR'] ?? '', FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE)) {
             $trustedProxies += [
                 $request->getClientIp()
             ];
