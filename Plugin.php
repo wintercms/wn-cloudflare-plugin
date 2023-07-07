@@ -19,7 +19,7 @@ class Plugin extends PluginBase
     {
         return [
             'name'        => 'winter.cloudflare::lang.plugin.name',
-            'description' => 'winter.cloudflare::lang.plugin.description ',
+            'description' => 'winter.cloudflare::lang.plugin.description',
             'author'      => 'Winter CMS',
             'icon'        => 'icon-cloudflare',
             'homepage'    => 'https://github.com/wintercms/wn-cloudflare-plugin',
